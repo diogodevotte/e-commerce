@@ -1,6 +1,6 @@
 # 🛒 Sistema de e-commerce
 
-Este repositório contém o desenvolvimento de um sistema de **e-commerce** orientado a objetos, implementado em **Java** como projeto final da disciplina de **Programação Orientada a Objetos (POO)** do **INF-UFG** (Instituto de Informática da Universidade Federal de Goiás), ministrada pelo **@savioteles**.
+Este repositório contém o desenvolvimento de um sistema de **e-commerce** orientado a objetos, implementado em **Java** como projeto final da disciplina de **Programação Orientada a Objetos (POO)** do **INF-UFG** (Instituto de Informática da Universidade Federal de Goiás), ministrada pelo **[@savioteles](https://github.com/savioteles)**.
 
 Aqui você encontrará a modelagem e implementação de entidades típicas de um e-commerce como:
 
