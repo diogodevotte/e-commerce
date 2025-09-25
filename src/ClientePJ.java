@@ -14,4 +14,9 @@ public class ClientePJ extends Cliente{
         this.cnpj = cnpj;
     }
     
+    @Override
+    public String getIdentificadorUnico() {
+        return cnpj;
+    }
+
 }

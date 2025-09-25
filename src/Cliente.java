@@ -23,4 +23,5 @@ public abstract class Cliente {
         this.email = email;
     }
 
+    public abstract String getIdentificadorUnico();
 }

@@ -14,4 +14,9 @@ public class ClientePF extends Cliente{
         this.cpf = cpf;
     }
 
+    @Override
+    public String getIdentificadorUnico() {
+        return cpf;
+    }
+
 }

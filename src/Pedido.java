@@ -9,7 +9,8 @@ public class Pedido {
     private List<ItemPedido> itens;
     private Cliente cliente;
     private IPagamento metodoPagamento;
-    
+    private StatusPedido statusPedido;
+
     public Pedido(int numero, LocalDate data, String status,Cliente cliente, IPagamento metodoPagamento) {
         this.numero = numero;
         this.data = data;
@@ -17,6 +18,14 @@ public class Pedido {
         this.cliente = cliente;
         this.itens = new ArrayList<>();
         this.metodoPagamento = metodoPagamento;
+    }
+
+    public StatusPedido getStatusPedido() {
+        return statusPedido;
+    }
+
+    public void setStatusPedido(StatusPedido statusPedido) {
+        this.statusPedido = statusPedido;
     }
 
     public void setMetodoPagamento(IPagamento metodoPagamento) {
@@ -77,6 +86,10 @@ public class Pedido {
 
     public void setItens(List<ItemPedido> itens) {
         this.itens = itens;
+    }
+
+    public IPagamento getMetodoPagamento() {
+        return metodoPagamento;
     }
 
 

@@ -37,6 +37,8 @@ public class SistemaPedidos {
         p2.adicionarItem(itemMouse);
         p2.adicionarItem(itemMousePad);
 
+        p1.setStatusPedido(StatusPedido.PENDENTE);
+
         System.out.println("#---------------------------------------#");
         System.out.println("Cliente: " + cliente1.getNome());
 
