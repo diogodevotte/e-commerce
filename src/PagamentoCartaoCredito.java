@@ -6,14 +6,6 @@ public class PagamentoCartaoCredito implements IPagamento{
     private LocalDate dataValidade;
     private StatusPagamento statusPagamento;
 
-    public String getNumeroCartao() {
-        return numeroCartao;
-    }
-
-    public void setNumeroCartao(String numeroCartao) {
-        this.numeroCartao = numeroCartao;
-    }
-
     @Override
     public boolean processarPagamento(double valor) {
         if(valor < 200){
@@ -21,6 +13,14 @@ public class PagamentoCartaoCredito implements IPagamento{
         } else {
             return false;
         }
+    }
+
+    public String getNumeroCartao() {
+        return numeroCartao;
+    }
+
+    public void setNumeroCartao(String numeroCartao) {
+        this.numeroCartao = numeroCartao;
     }
 
     @Override
