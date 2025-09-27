@@ -9,12 +9,13 @@ public class Pedido {
     private IPagamento metodoPagamento;
     private StatusPedido statusPedido;
     // AplicarDesconto não retorna nada?
-
+    // Tonar o pedido PENDENTE no construtor?
     public Pedido(LocalDate data,Cliente cliente, IPagamento metodoPagamento) {
         this.data = data;
         this.cliente = cliente;
         this.itens = new ArrayList<>();
         this.metodoPagamento = metodoPagamento;
+        this.statusPedido = StatusPedido.PENDENTE;
     }
 
     public StatusPedido getStatusPedido() {
