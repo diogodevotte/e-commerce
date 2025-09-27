@@ -1,8 +1,6 @@
 public class ItemPedido {
     private Produto produto;
     private int quantidade;
-    //private int precoUnitario;
-    // Qual a diferença entre o preço que está no produto e o precoUnitário?    
 
     public ItemPedido(Produto produto, int quantidade) {
         this.produto = produto;

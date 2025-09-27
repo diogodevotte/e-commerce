@@ -3,18 +3,15 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Pedido {
-    private int numero;
     private LocalDate data;
-    private String status;
     private List<ItemPedido> itens;
     private Cliente cliente;
     private IPagamento metodoPagamento;
     private StatusPedido statusPedido;
+    // AplicarDesconto não retorna nada?
 
-    public Pedido(int numero, LocalDate data, String status,Cliente cliente, IPagamento metodoPagamento) {
-        this.numero = numero;
+    public Pedido(LocalDate data,Cliente cliente, IPagamento metodoPagamento) {
         this.data = data;
-        this.status = status;
         this.cliente = cliente;
         this.itens = new ArrayList<>();
         this.metodoPagamento = metodoPagamento;
@@ -31,25 +28,9 @@ public class Pedido {
     public void setMetodoPagamento(IPagamento metodoPagamento) {
         this.metodoPagamento = metodoPagamento;
     }
-
-    public void adicionarItem(ItemPedido item){
-        this.itens.add(item);
-    }
-
-    public double calcularTotal(){
-        double total = 0;
-        for(ItemPedido item : this.itens){
-            total += item.getSubTotal();
-        }
-        return total;
-    }
-
-    public int getNumero(){
-        return numero;
-    }
-
-    public void setNumero(int numero) {
-        this.numero = numero;
+    
+    public IPagamento getMetodoPagamento() {
+        return metodoPagamento;
     }
 
     public LocalDate getData() {
@@ -60,20 +41,28 @@ public class Pedido {
         this.data = data;
     }
 
-    public String getStatus() {
-        return status;
-    }
-
-    public void setStatus(String status) {
-        this.status = status;
-    }
-
     public Cliente getCliente() {
         return cliente;
     }
 
     public void setCliente(Cliente cliente) {
         this.cliente = cliente;
+    }
+
+    public void setItens(List<ItemPedido> itens) {
+        this.itens = itens;
+    }
+    
+    public List<ItemPedido> getItens() {
+        return itens;
+    }
+
+    public double calcularTotal(){
+        double total = 0;
+        for(ItemPedido item : this.itens){
+            total += item.getSubTotal();
+        }
+        return total;
     }
 
     public List<String> nomeItens() {
@@ -84,13 +73,40 @@ public class Pedido {
         return nomes;
     }
 
-    public void setItens(List<ItemPedido> itens) {
-        this.itens = itens;
+    public void adicionarItem(Produto produto, int quantidade){
+        for(ItemPedido item : this.itens){
+            if(item.getProduto().equals(produto)){
+                item.setQuantidade(item.getQuantidade() + quantidade);
+                return;
+            }
+        }
+        ItemPedido novoItem = new ItemPedido(produto, quantidade);
+        this.itens.add(novoItem);
     }
 
-    public IPagamento getMetodoPagamento() {
-        return metodoPagamento;
+    public void removerItem(ItemPedido item){
+        this.itens.remove(item);
     }
 
+    public double aplicarDesconto(double desconto){
+        double valor = this.calcularTotal() * (1-desconto);
+        return valor;
+    }
 
+    public boolean confirmarPedido(){
+        if(this.statusPedido != StatusPedido.PENDENTE){
+            return false;
+        } else if(this.metodoPagamento == null){
+            return false;
+        } else {
+            boolean control = this.metodoPagamento.processarPagamento(this.calcularTotal());
+            if(control){
+                this.statusPedido = StatusPedido.PROCESSANDO;
+                return control;
+            } else {
+                this.statusPedido = StatusPedido.PENDENTE;
+                return control;
+            }
+        }
+    }
 }

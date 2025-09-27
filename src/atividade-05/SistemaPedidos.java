@@ -4,13 +4,16 @@ import java.util.List;
 public class SistemaPedidos {
     public static void main(String[] args) throws Exception {
         
-        Produto teclado = new Produto("Fortrek Teclado Gamer BLACK EAGLE", 119.99, 30, "202501", "Teclado Gamer" );
-        Produto mousePad = new Produto("Mouse Pad Preto", 199.99, 50, "202502" , "Mouse Pad Preto");
-        Produto mouse = new Produto("Mouse Dell sem fio - WM118", 149.90, 15, "202503", "Mouse Dell");
+        Produto teclado = new Produto("Fortrek Teclado Gamer BLACK EAGLE", 50);
+        Produto mousePad = new Produto("Mouse Pad Preto", 200);
+        Produto mouse = new Produto("Mouse Dell sem fio - WM118", 150);
 
-        //Falta alguns atributos no construtor;
-        ClientePF cliente1 = new ClientePF("Diogo", "diogo@gmail.com", "123456789-8","64999622754");
-        ClientePJ cliente2 = new ClientePJ("Diogo LTDA", "diogo@ltda.com", "987654321-2","62999374563");
+        ItemPedido itemTeclado = new ItemPedido(teclado, 2);
+        ItemPedido itemMousePad = new ItemPedido(mousePad, 7);
+        ItemPedido itemMouse = new ItemPedido(mouse, 1);
+
+        ClientePF cliente1 = new ClientePF("Diogo", "diogo@gmail.com", "1234");
+        ClientePJ cliente2 = new ClientePJ("Diogo LTDA", "diogo@ltda.com", "4321");
 
         PagamentoCartaoCredito pagamentoCartao = new PagamentoCartaoCredito();
         Pedido p1 = new Pedido(12345,LocalDate.now(),"Disponível", cliente1,pagamentoCartao);
@@ -19,7 +22,7 @@ public class SistemaPedidos {
         Pedido p2 = new Pedido(54321,LocalDate.now(),"Disponível",cliente2,pagamentoBoleto);
         // Pode ser IPagamento, o Pedido só quer receber uma classe que implementa o método.
 
-        p1.adicionarItem(teclado,2);
+        p1.adicionarItem(itemMouse);
 
 
         p2.adicionarItem(itemTeclado);

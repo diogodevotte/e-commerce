@@ -1,8 +1,11 @@
+import java.time.LocalDate;
+
 public class ClientePF extends Cliente{
     private String cpf;
+    private LocalDate dataNascimento;
 
-    public ClientePF(String nome, String email,String cpf) {
-        super(nome,email);
+    public ClientePF(String nome, String email,String cpf, String telefone) {
+        super(nome,email,telefone);
         this.cpf = cpf;
     }
 
@@ -12,6 +15,14 @@ public class ClientePF extends Cliente{
 
     public void setCpf(String cpf) {
         this.cpf = cpf;
+    }
+    
+    public LocalDate getDataNascimento() {
+        return dataNascimento;
+    }
+
+    public void setDataNascimento(LocalDate dataNascimento) {
+        this.dataNascimento = dataNascimento;
     }
 
     @Override

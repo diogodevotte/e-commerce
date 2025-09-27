@@ -2,15 +2,10 @@ public class Produto {
     protected String nome;
     protected double preco;
     protected int estoque;
-    protected String id;
-    protected String descricao;
     
-    public Produto(String nome, double preco, int estoque, String id, String descricao) {
+    public Produto(String nome, double preco) {
         this.nome = nome;
         this.preco = preco;
-        this.estoque = estoque;
-        this.id = id;
-        this.descricao = descricao;
     }
 
     public String getNome() {
@@ -32,25 +27,9 @@ public class Produto {
         this.estoque = estoque;
     }
 
-    public String getId() {
-        return id;
-    }
-
-    public void setId(String id) {
-        this.id = id;
-    }
-
-    public String getDescricao() {
-        return descricao;
-    }
-
-    public void setDescricao(String descricao) {
-        this.descricao = descricao;
-    }
-
     public void adicionarEstoque(int quantidade){
         if(quantidade > -1){
-            setEstoque(getEstoque() + quantidade);
+            setEstoque(quantidade);
         }
     }
 

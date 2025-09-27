@@ -8,17 +8,15 @@ public class PagamentoCartaoCredito implements IPagamento{
 
     @Override
     public boolean processarPagamento(double valor) {
-        if(valor < 5000){
-            this.setStatusPagamento(StatusPagamento.APROVADO);
+        if(valor < 200){
             return true;
         } else {
-            this.setStatusPagamento(StatusPagamento.RECUSADO);
             return false;
         }
     }
 
     public String getNumeroCartao() {
-        return this.numeroCartao;
+        return numeroCartao;
     }
 
     public void setNumeroCartao(String numeroCartao) {
@@ -30,12 +28,8 @@ public class PagamentoCartaoCredito implements IPagamento{
         return this.statusPagamento;
     }
 
-    public void setStatusPagamento(StatusPagamento statusPagamento) {
-        this.statusPagamento = statusPagamento;
-    }
-
     public String getNomeTitular() {
-        return this.nomeTitular;
+        return nomeTitular;
     }
 
     public void setNomeTitular(String nomeTitular) {
@@ -43,10 +37,19 @@ public class PagamentoCartaoCredito implements IPagamento{
     }
 
     public LocalDate getDataValidade() {
-        return this.dataValidade;
+        return dataValidade;
     }
 
     public void setDataValidade(LocalDate dataValidade) {
         this.dataValidade = dataValidade;
     }
+
+    public StatusPagamento getStatusPagamento() {
+        return statusPagamento;
+    }
+
+    public void setStatusPagamento(StatusPagamento statusPagamento) {
+        this.statusPagamento = statusPagamento;
+    }
+
 }

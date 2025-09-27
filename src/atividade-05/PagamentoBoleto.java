@@ -8,12 +8,15 @@ public class PagamentoBoleto implements IPagamento{
 
     @Override
     public boolean processarPagamento(double valor) {
-        this.setStatusPagamento(StatusPagamento.APROVADO);
-        return true;
+        if(valor < 1000){
+            return true;
+        } else {
+            return false;
+        }
     }
 
     public String getCodigoBarras() {
-        return this.codigoBarras;
+        return codigoBarras;
     }
 
     public void setCodigoBarras(String codigoBarras) {
@@ -24,12 +27,8 @@ public class PagamentoBoleto implements IPagamento{
         return this.statusPagamento;
     }
 
-    public void setStatusPagamento(StatusPagamento statusPagamento) {
-        this.statusPagamento = statusPagamento;
-    }
-
     public LocalDate getDataVencimento() {
-        return this.dataVencimento;
+        return dataVencimento;
     }
 
     public void setDataVencimento(LocalDate dataVencimento) {
@@ -37,10 +36,18 @@ public class PagamentoBoleto implements IPagamento{
     }
 
     public double getValor() {
-        return this.valor;
+        return valor;
     }
 
     public void setValor(double valor) {
         this.valor = valor;
+    }
+
+    public StatusPagamento getStatusPagamento() {
+        return statusPagamento;
+    }
+
+    public void setStatusPagamento(StatusPagamento statusPagamento) {
+        this.statusPagamento = statusPagamento;
     }
 }
