@@ -26,7 +26,6 @@ public class SistemaPedidos {
         p1.confirmarPedido();
         p2.confirmarPedido();
 
-
         System.out.println("#---------------------------------------#");
         System.out.println("Cliente: " + p1.getCliente().getNome());
         System.out.println("\nPRODUTOS:");
