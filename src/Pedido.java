@@ -66,14 +66,6 @@ public class Pedido {
         return total;
     }
 
-    public List<String> nomeItens() {
-        List<String> nomes = new ArrayList<>();
-        for(ItemPedido item : this.itens){
-            nomes.add(item.getProduto().getNome());
-        }
-        return nomes;
-    }
-
     public void adicionarItem(Produto produto, int quantidade){
         for(ItemPedido item : this.itens){
             if(item.getProduto().equals(produto)){
