@@ -49,7 +49,7 @@ public class Produto {
     }
 
     public void adicionarEstoque(int quantidade){
-        if(quantidade > -1){
+        if(quantidade > 0){
             setEstoque(getEstoque() + quantidade);
         }
     }

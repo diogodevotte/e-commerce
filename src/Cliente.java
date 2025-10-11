@@ -2,8 +2,7 @@ public abstract class Cliente {
     protected String nome;
     protected String email;
     protected String telefone;
-    //protected String id; 
-    //O que seria esse ID? Falta o getId();
+    protected String id; 
 
     public Cliente(String nome, String email, String telefone){
         this.nome = nome;
@@ -33,6 +32,10 @@ public abstract class Cliente {
 
     public void setTelefone(String telefone) {
         this.telefone = telefone;
+    }
+
+    public String getId() {
+        return id;
     }
 
     public abstract String getIdentificadorUnico();

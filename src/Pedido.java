@@ -8,8 +8,7 @@ public class Pedido {
     private Cliente cliente;
     private IPagamento metodoPagamento;
     private StatusPedido statusPedido;
-    // AplicarDesconto não retorna nada?
-    // Tonar o pedido PENDENTE no construtor?
+
     public Pedido(LocalDate data,Cliente cliente, IPagamento metodoPagamento) {
         this.data = data;
         this.cliente = cliente;

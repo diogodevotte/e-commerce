@@ -7,7 +7,6 @@ public class SistemaPedidos {
         Produto mousePad = new Produto("Mouse Pad Preto", 199.90, 50, "202502" , "Mouse Pad Preto");
         Produto mouse = new Produto("Mouse Dell sem fio - WM118", 149.90, 15, "202503", "Mouse Dell");
 
-        //Falta alguns atributos no construtor;
         ClientePF cliente1 = new ClientePF("Diogo", "diogo@gmail.com", "123456789-8","64999622754");
         ClientePJ cliente2 = new ClientePJ("Diogo LTDA", "diogo@ltda.com", "987654321-2","62999374563");
 

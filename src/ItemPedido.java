@@ -1,8 +1,7 @@
 public class ItemPedido {
     private Produto produto;
     private int quantidade;
-    //private int precoUnitario;
-    // Qual a diferença entre o preço que está no produto e o precoUnitário?    
+    private double precoUnitario; 
 
     public ItemPedido(Produto produto, int quantidade) {
         this.produto = produto;
@@ -20,6 +19,14 @@ public class ItemPedido {
     }
     public void setQuantidade(int quantidade) {
         this.quantidade = quantidade;
+    }
+
+    public double getPrecoUnitario() {
+        return precoUnitario;
+    }
+
+    public void setPrecoUnitario(double precoUnitario) {
+        this.precoUnitario = precoUnitario;
     }
 
     public double getSubTotal(){
