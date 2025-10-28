@@ -1,3 +1,5 @@
+package poo;
+
 public class Produto {
     protected String nome;
     protected double preco;
@@ -5,7 +7,7 @@ public class Produto {
     protected String id;
     protected String descricao;
     
-    public Produto(String nome, double preco, int estoque, String id, String descricao) {
+    public Produto(String id, String nome,double preco, String descricao, int estoque) {
         this.nome = nome;
         this.preco = preco;
         this.estoque = estoque;
